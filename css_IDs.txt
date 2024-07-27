@@ -1,0 +1,10 @@
+*** Nav ***
+
+body - font-family
+
+#main-header__item-container - background-color
+
+#main-header__menu-icon - color
+
+#main-header__logo-text - color
+

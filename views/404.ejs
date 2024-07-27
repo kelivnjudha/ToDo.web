@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./includes/head.ejs') %>
+<body>
+    <%- include('./includes/nav.ejs', {profileUrl:profileUrl, pageHeader:pageHeader}) %>
+    <main id="error-main">
+        <div id="home-main__main-container">
+            <%- include('./includes/menuSlide.ejs') %>
+            <div id="home-main__main-content-place-holder">
+                <div id="error-main__content-container">
+                    <div id="error-main__block">
+                        <div id="error-code">
+                            404
+                        </div>
+                        <div id="error-message-404">
+                            Page Not Found
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('./includes/profileSlide.ejs') %>
+        </div>
+    </main>
+</body>
+</html>
