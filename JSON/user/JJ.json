@@ -5,7 +5,7 @@
     "themeSetting": "default",
     "database": "JJ.json",
     "profileUrl": "https://notcommon-production.s3.amazonaws.com/uploads/collection/image/12967/open-uri20230810-173-vyj3m8",
-    "access": true,
-    "activeUrl": "/yTjKs1USJFiXjPR/toDo"
+    "access": false,
+    "activeUrl": ""
   }
 }

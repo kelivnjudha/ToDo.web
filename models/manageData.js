@@ -154,6 +154,75 @@ class User {
     getUsername(){
         return this.username;
     }
+
+    access(){
+        return new Promise((resolve, reject) => {
+            fs.readFile(path.join(userPath, `${this.username}.json`), 'utf8', (err, data) => {
+                if(err){
+                    reject(err);
+                    return;
+                }
+                try{
+                    const jsonData = JSON.parse(data);
+                    //console.log(jsonData.USER.access);
+                    resolve(jsonData.USER.access);
+                }catch (error){
+                    reject('Error parsing JSON');
+                }
+            });
+        });
+    }
+
+    theme(){
+        return new Promise((resolve, reject) => {
+            fs.readFile(path.join(userPath, `${this.username}.json`), 'utf-8', (err, data) => {
+                if(err){
+                    reject(err);
+                    return;
+                }
+                try{
+                    const jsonData = JSON.parse(data);
+                    //console.log(jsonData.USER.themeSetting);
+                    resolve(jsonData.USER.themeSetting);
+                }catch (error){
+                    reject('Error parsing JSON');
+                }
+            });
+        });
+    }
+
+    // account
+
+    changePassword(newPassword){
+        return new Promise((resolve, reject) => {
+            fs.readFile(path.join(userPath, `${this.username}.json`), 'utf-8', (err, data) => {
+                if(err){
+                    reject(err);
+                    return;
+                }
+                try{
+                    const jsonData = JSON.parse(data);
+                    if(this.passcode === jsonData.USER.passcode){
+                        jsonData.USER.passcode = newPassword;
+                        const updatedJsonString = JSON.stringify(jsonData, null, 2);
+                        // Write the updated json
+                        fs.writeFile(path.join(userPath, `${this.username}.json`), updatedJsonString, 'utf-8', (err) => {
+                            if(err){
+                                console.log(err);
+                                reject(err);
+                                return;
+                            }
+                            resolve(updatedJsonString);
+                        });
+                    }else{
+                        reject('Incorrect Password.');
+                    };
+                }catch (error){
+                    console.log('Error parsing JSON');
+                };
+            });
+        });
+    }
 }
 
 module.exports = User;

@@ -5,7 +5,7 @@
     "themeSetting": "default",
     "database": "JK.json",
     "profileUrl": "",
-    "access": true,
-    "activeUrl": "/rSChUNQdmEwMP0/toDo"
+    "access": false,
+    "activeUrl": ""
   }
 }

@@ -14,9 +14,12 @@ router.post('/logout', (req, res, next) => userController.logout(req, res, next)
 // Middleware to handle dynamic routes
 router.use((req, res, next) => {
     const activeUrl = req.session.userActiveUrl;
-    console.log(`Middleware active URL check: ${req.path} | Session active URL: ${activeUrl}`);
+    const accountPathUrl = `${activeUrl}/account`;
+    console.log(`Middleware active URL check: ${req.path} | Session active URLs: ${activeUrl} | ${accountPathUrl}`);
     if (activeUrl && req.path === activeUrl) {
         return userController.getHomePage(req, res, next);
+    } else if (req.path === accountPathUrl) {
+        return userController.getAccountPage(req, res, next);
     }
     next();
 });

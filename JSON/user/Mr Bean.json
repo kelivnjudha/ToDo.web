@@ -5,7 +5,7 @@
     "themeSetting": "default",
     "database": "Mr Bean.json",
     "profileUrl": "https://i.pinimg.com/564x/20/5f/a9/205fa9fd919ddc9a52de9807098f9232.jpg",
-    "access": true,
-    "activeUrl": "/hJUD2UC5kgU4L3rZV8P/toDo"
+    "access": false,
+    "activeUrl": ""
   }
 }

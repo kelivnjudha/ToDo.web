@@ -199,4 +199,4 @@ document.addEventListener("DOMContentLoaded", () => {
             passwordField.type = 'password';
         }
     }
-})
+})  

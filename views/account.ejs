@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./includes/head.ejs') %>
+<body>
+    <%- include('./includes/nav.ejs', {profileUrl: profileUrl, pageHeader:pageHeader, username:username, activeUrl:activeUrl}) %>
+    <main id="account-main">
+        <div id="account-main__main-container">
+            <%- include('./includes/menuSlide.ejs'), {access:access, activeUrl:activeUrl} %>
+            <div id="account-main__main-content-place-holder">
+                <div id="account-main__profile-container-wrapper">
+                    <div id="account-main__profile-container">
+                        <img id="profile" src="<%= profileUrl %>" alt="profile">
+                    </div>
+                </div>
+                <h2 id="account-main__username"><%= username %></h2>
+                <div id="account-main__user-info-container">
+                    <ul id="account-main__user-info-list">
+                        <li id="account-main__user-info">
+                            <div id="account-main__user-info-place-holder">
+                                <div id="account-main__user-info-username-label">Username</div>
+                                <div id="account-main__user-info-username"><%= username %></div>
+                            </div>
+                        </li>
+                        <li id="account-main__user-info">
+                            <div id="account-main__user-info-place-holder">
+                                <div id="account-main__user-info-pass-label">Password</div>
+                                <div id="account-main__user-info-pass">**************</div>
+                            </div>
+                        </li>
+                        <li id="account-main__user-info">
+                            <div id="account-main__user-info-place-holder">
+                                <div id="account-main__user-info-theme-label">Theme</div>
+                                <div id="account-main__user-info-theme"><%= theme %></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <%- include('./includes/profileSlide.ejs') %>
+        </div>
+    </main>
+</body>
+</html>

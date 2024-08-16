@@ -34,6 +34,7 @@ body{
     font-size: 3.5rem;
     color: rgb(255, 255, 255); /* Theme Setting Notice */
     padding-left: 50px;
+    padding-right: 5rem;
 }
 
 #main-header__logo-text{
@@ -108,12 +109,12 @@ body{
 
 
 
-#home-main{
+#home-main, #account-main{
     padding: 0%;
     margin: 0%;
 }
 
-#home-main__main-container{
+#home-main__main-container, #account-main__main-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -131,7 +132,7 @@ body{
 }
 
 
-#home-main__main-content-place-holder{
+#home-main__main-content-place-holder, #account-main__main-content-place-holder{
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 10rem;
@@ -139,6 +140,9 @@ body{
     width: 70rem;
     background-color: azure;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -422,4 +426,63 @@ body{
 #signup-loginlink a{
     text-decoration: none;
     color: #007bff;
+}
+
+/*############################### ACCOUNT PAGE CSS CODE ###############################*/
+#account-main__profile-container-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#account-main__profile-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    height: 8rem;
+    width: 8rem;
+}
+
+#account-main__user-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    width: 25rem;
+    height: 30rem;
+    border: 1px solid rgb(165, 165, 165);    
+}
+
+#account-main__user-info-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#account-main__user-info-place-holder{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(165, 165, 165);
+    width: 20rem;
+    height: 3rem;
+    border-radius: 10px;
+    gap: 5rem;
+}
+
+#account-main__user-info-username-label, #account-main__user-info-theme-label,
+#account-main__user-info-pass-label{
+    padding-left: 1rem;
+}
+
+#account-main__user-info-username, #account-main__user-info-theme, 
+#account-main__user-info-pass{
+    padding-right: 1rem;
+}
+
+#account-main__user-info{
+    padding-bottom: 1rem;
 }

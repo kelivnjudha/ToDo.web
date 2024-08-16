@@ -2,10 +2,10 @@
 <html lang="en">
 <%- include('./includes/head.ejs') %>
 <body>
-    <%- include('./includes/nav.ejs', {profileUrl: profileUrl, pageHeader:pageHeader, username:username}) %>
+    <%- include('./includes/nav.ejs', {profileUrl: profileUrl, pageHeader:pageHeader, username:username, activeUrl:activeUrl}) %>
     <main id="home-main">
         <div id="home-main__main-container">
-            <%- include('./includes/menuSlide.ejs') %>
+            <%- include('./includes/menuSlide.ejs'), {access:access, activeUrl:activeUrl} %>
             <div id="home-main__main-content-place-holder">
                 MAIN
             </div>
