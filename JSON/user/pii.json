@@ -5,7 +5,7 @@
     "themeSetting": "default",
     "database": "pii.json",
     "profileUrl": "",
-    "access": true,
-    "activeUrl": "/NXQp0EiGhswXqP5y/toDo"
+    "access": false,
+    "activeUrl": ""
   }
 }

@@ -5,7 +5,7 @@
     "themeSetting": "default",
     "database": "Kelvin.json",
     "profileUrl": "https://completeahc.com.au/wp-content/uploads/2022/02/Kelvin-1-683x1024-2-e1698111656238.jpg",
-    "access": true,
-    "activeUrl": "/fLChwLFMcKBwa/toDo"
+    "access": false,
+    "activeUrl": ""
   }
 }

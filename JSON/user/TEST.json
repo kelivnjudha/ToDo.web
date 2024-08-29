@@ -1,0 +1,11 @@
+{
+  "USER": {
+    "username": "TEST",
+    "passcode": "1",
+    "themeSetting": "default",
+    "database": "TEST.json",
+    "profileUrl": "",
+    "access": true,
+    "activeUrl": "/7b3527e88980b640530d93b9a2e6d49644f0aca9e314c52609d35f5de1fd4338/toDo"
+  }
+}

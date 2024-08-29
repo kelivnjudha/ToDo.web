@@ -109,12 +109,12 @@ body{
 
 
 
-#home-main, #account-main{
+#home-main, #account-main, #main-editAccount{
     padding: 0%;
     margin: 0%;
 }
 
-#home-main__main-container, #account-main__main-container{
+#home-main__main-container, #account-main__main-container, #main-editAccount__main-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -132,7 +132,8 @@ body{
 }
 
 
-#home-main__main-content-place-holder, #account-main__main-content-place-holder{
+#home-main__main-content-place-holder, #account-main__main-content-place-holder,
+#main-editAccount__main-content-place-holder{
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 10rem;
@@ -445,18 +446,18 @@ body{
     width: 8rem;
 }
 
+
 #account-main__user-info-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
     width: 25rem;
-    height: 30rem;
     border: 1px solid rgb(165, 165, 165);    
 }
 
 #account-main__user-info-list{
-    list-style: none;
+    list-style: circle;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -485,4 +486,122 @@ body{
 
 #account-main__user-info{
     padding-bottom: 1rem;
+}
+
+#account-main__user-info-edit-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+#account-main__user-info-edit-button-container a{
+    text-decoration: none;
+}
+
+#account-main__user-info-edit-button{
+    border: 1px solid rgb(165, 165, 165);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    gap: 10px;
+    color: black;
+}
+
+#account-main__user-info-edit-button:hover{
+    border: 1px solid rgb(84, 84, 84);
+    background-color: #e0e0e0;
+}
+
+
+/*#################################### EDIT ACCOUNT CODE ####################################*/
+
+
+#edit-account-main__profile-container-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#edit-account-main__profile-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    height: 8rem;
+    width: 8rem;
+}
+
+
+#edit-account-main__user-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    width: 25rem;
+    border: 1px solid rgb(165, 165, 165);    
+}
+
+#edit-account-main__user-info-list{
+    list-style: circle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#edit-account-main__user-info-place-holder{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(165, 165, 165);
+    width: 20rem;
+    border-radius: 10px;
+    gap: 1rem;
+}
+
+#edit-account-main__user-info-username-label, #edit-account-main__user-info-theme-label,
+#edit-account-main__user-info-pass-label{
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+#edit-account-main__user-info-username, #edit-account-main__user-info-theme, 
+#edit-account-main__user-info-pass{
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+#edit-account-main__user-info{
+    padding-bottom: 1rem;
+}
+
+#edit-account-main__user-info-edit-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+#edit-account-main__user-info-edit-button-container a{
+    text-decoration: none;
+}
+
+#edit-account-main__user-info-edit-button{
+    border: 1px solid rgb(165, 165, 165);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    gap: 10px;
+    color: black;
+}
+
+#edit-account-main__user-info-edit-button:hover{
+    border: 1px solid rgb(84, 84, 84);
+    background-color: #e0e0e0;
 }

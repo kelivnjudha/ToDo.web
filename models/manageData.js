@@ -2,7 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 const root = require('../utils/root');
-const url = require('./urlGenerator');
+//const url = require('./urlGenerator');
+const url = require('../utils/hex_key');
+
 
 const userPath = path.join(root, 'JSON', 'user');
 

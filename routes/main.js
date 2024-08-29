@@ -15,11 +15,14 @@ router.post('/logout', (req, res, next) => userController.logout(req, res, next)
 router.use((req, res, next) => {
     const activeUrl = req.session.userActiveUrl;
     const accountPathUrl = `${activeUrl}/account`;
+    const editAccountPathUrl = `${activeUrl}/account/edit`;
     console.log(`Middleware active URL check: ${req.path} | Session active URLs: ${activeUrl} | ${accountPathUrl}`);
     if (activeUrl && req.path === activeUrl) {
         return userController.getHomePage(req, res, next);
     } else if (req.path === accountPathUrl) {
         return userController.getAccountPage(req, res, next);
+    } else if (req.path === editAccountPathUrl) {
+        return userController.getEditAccountPage(req, res, next);
     }
     next();
 });

@@ -81,6 +81,32 @@ class UserController {
         });
     }
 
+    async getEditAccountPage(req, res, next){
+        if(!req.session.user) {
+            return res.redirect('/login');
+        }
+
+        const user = new User(req.session.user.username, req.session.user.passcode);
+
+        try {
+            const profileUrl = await user.getUserProfileUrl();
+            const access = await user.access();
+            const theme = await user.theme();
+            res.render('editAccount', {
+                docTitle: 'Edit',
+                profileUrl: profileUrl,
+                pageHeader: 'Account',
+                username: user.getUsername(),
+                activeUrl: req.session.userActiveUrl,
+                access: access,
+                theme: theme,
+            });
+        } catch (err) {
+            console.error(err);
+            res.redirect('/login');
+        }
+    }
+
     async getAccountPage(req, res, next) {
         if (!req.session.user) {
             return res.redirect('/login');
@@ -208,6 +234,8 @@ class UserController {
             this.getHomePage(req, res, next);
         } else if(activeUrl && req.path === `${activeUrl}/account`) {
             this.getAccountPage(req, res, next);
+        } else if(activeUrl && req.path === `${accountUrl}/account/edit`){
+
         } else {
             next();
         }
