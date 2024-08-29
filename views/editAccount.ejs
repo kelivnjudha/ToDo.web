@@ -6,43 +6,59 @@
     <main id="main-editAccount">
         <div id="main-editAccount__main-container">
             <%- include('./includes/menuSlide.ejs') %>
-            <div id="main-editAccount__main-content-place-holder">
-                <div id="edit-account-main__profile-container-wrapper">
-                    <div id="edit-account-main__profile-container">
-                        <img id="profile" src="<%= profileUrl ? profileUrl : '/IMG/default.jpg' %>" alt="profile">
+            <form action="<%= activeUrl %>/account/edit/save" method="post">
+                <div id="main-editAccount__main-content-place-holder">
+                    <div id="edit-account-main__profile-container-wrapper">
+                        <div id="edit-account-main__profile-container">
+                            <img id="profile" src="<%= profileUrl ? profileUrl : '/IMG/default.jpg' %>" alt="profile">
+                        </div>
+                    </div>
+                    <h2 id="edit-account-main__username"><%= username %></h2>
+                    <div id="edit-account-main__user-info-container">
+                        <ul id="edit-account-main__user-info-list">
+                            <li id="edit-account-main__user-info">
+                                <div id="edit-account-main__user-info-place-holder">
+                                    <div id="edit-account-main__user-info-username-label">Username</div>
+                                    <div id="edit-account-main__user-info-username">
+                                        <input type="text" name="new_username" id="new_username__input">
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="edit-account-main__user-info">
+                                <div id="edit-account-main__user-info-place-holder">
+                                    <div id="edit-account-main__user-info-pass-label">Current Password</div>
+                                    <div id="edit-account-main__user-info-pass">
+                                        <input type="password" name="current_password" id="current_password__input">
+                                    </div>
+                                    <hr id="edit-account-main__hrs">
+                                    <div id="edit-account-main__user-info-pass-label2">New Password</div>
+                                    <div id="edit-account-main__user-info-pass">
+                                        <input type="password" name="new_password1" id="new_password1__input">
+                                    </div>
+                                    <hr id="edit-account-main__hrs">
+                                    <div id="edit-account-main__user-info-pass-label2">Comfirm Password</div>
+                                    <div id="edit-account-main__user-info-pass">
+                                        <input type="password" name="new_password2" id="new_password2__input">
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="edit-account-main__user-info">
+                                <div id="edit-account-main__user-info-place-holder">
+                                    <div id="edit-account-main__user-info-theme-label">Theme</div>
+                                    <div id="edit-account-main__user-info-theme"><a href="<%= activeUrl %>/themes" style="text-decoration: none;">Browse Themes</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="edit-account-main__user-info-edit-button-container">
+                        <button id="edit-account-main__user-info-edit-button">
+                            Save<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15">
+                                <path fill="none" stroke="currentColor" d="M4.5 14.5v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m3 0h-12a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1h8.586a1 1 0 0 1 .707.293l3.414 3.414a1 1 0 0 1 .293.707V13.5a1 1 0 0 1-1 1Z" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
-                <h2 id="edit-account-main__username"><%= username %></h2>
-                <div id="edit-account-main__user-info-container">
-                    <ul id="edit-account-main__user-info-list">
-                        <li id="edit-account-main__user-info">
-                            <div id="edit-account-main__user-info-place-holder">
-                                <div id="edit-account-main__user-info-username-label">Username</div>
-                                <input type="text" id="edit-account-main__user-info-username">
-                            </div>
-                        </li>
-                        <li id="edit-account-main__user-info">
-                            <div id="edit-account-main__user-info-place-holder">
-                                <div id="edit-account-main__user-info-pass-label">Password</div>
-                                <div id="edit-account-main__user-info-pass">**************</div>
-                            </div>
-                        </li>
-                        <li id="edit-account-main__user-info">
-                            <div id="edit-account-main__user-info-place-holder">
-                                <div id="edit-account-main__user-info-theme-label">Theme</div>
-                                <div id="edit-account-main__user-info-theme"><%= theme %></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div id="edit-account-main__user-info-edit-button-container">
-                    <a href= "<%= activeUrl %>/account/edit/save">
-                        <div id="edit-account-main__user-info-edit-button">Save<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15">
-                            <path fill="none" stroke="currentColor" d="M4.5 14.5v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m3 0h-12a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1h8.586a1 1 0 0 1 .707.293l3.414 3.414a1 1 0 0 1 .293.707V13.5a1 1 0 0 1-1 1Z" />
-                        </svg></div>
-                    </a>
-                </div>
-            </div>
+            </form>
             <%- include('./includes/profileSlide.ejs') %>
         </div>
     </main>
