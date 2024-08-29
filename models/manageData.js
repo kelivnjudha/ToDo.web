@@ -8,7 +8,7 @@ const url = require('../utils/hex_key');
 
 const userPath = path.join(root, 'JSON', 'user');
 
-let isUser = false;
+//let isUser = false;
 
 const generateDataFile = (dataPath, filename) => {
     const pathDir = path.join(dataPath, filename);
@@ -28,8 +28,12 @@ const findUser = (username) => {
             if(err){
                 reject(err);
             };
-            files.forEach(file => console.log(file.split('.json').join('').toLowerCase()));
-            //files.forEach(file => file.split('.json').join('').toLowerCase() === username.toLowerCase() ? resolve(true) : reject(false));
+            const userExists = files.some(file => file.split('.json').join('').toLowerCase() === username.toLowerCase());
+            if(userExists){
+                resolve(true);
+            } else {
+                reject(false);
+            }
         })
     })
 }
@@ -40,15 +44,24 @@ class User {
         this.passcode = passcode;
     }
 
-    register(){
+    register() {
         return new Promise((resolve, reject) => {
             fs.readdir(userPath, (err, files) => {
-                if(err){
-                    reject(err);
-                };
-                files.forEach(file => file.split('.json').join('').toLowerCase() === this.username.toLowerCase() ? reject(`${this.username} is already exisit. Please Login`) : resolve(true));
+                if (err) {
+                    return reject(err); // Handle any file system errors
+                }
+    
+                const userExists = files.some(file => 
+                    file.split('.json').join('').toLowerCase() === this.username.toLowerCase()
+                );
+    
+                if (userExists) {
+                    reject(`${this.username} already exists. Please Login`);
+                } else {
+                    resolve(true);
+                }
             });
-        })
+        });
     }
 
     login(){

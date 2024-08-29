@@ -1,11 +1,11 @@
 {
   "USER": {
     "username": "Ploy",
-    "passcode": "piiiii",
+    "passcode": "1",
     "themeSetting": "default",
     "database": "Ploy.json",
-    "profileUrl": "https://images.indianexpress.com/2024/04/jungkook.jpg",
+    "profileUrl": "",
     "access": true,
-    "activeUrl": "/7f6b873648bf67c8831e14f7f95812358fe00ecc7f0b363796d85db0a56a25ac/toDo"
+    "activeUrl": "/c4f6cc7e30dc84630abd5992622eead81fad3f617db684432a1345c1812474be/toDo"
   }
 }
