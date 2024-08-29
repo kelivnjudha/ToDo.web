@@ -22,6 +22,18 @@ const generateDataFile = (dataPath, filename) => {
     })
 }
 
+const findUser = (username) => {
+    return new Promise((resolve, reject) => {
+        fs.readdir(userPath, (err, files) => {
+            if(err){
+                reject(err);
+            };
+            files.forEach(file => console.log(file.split('.json').join('').toLowerCase()));
+            //files.forEach(file => file.split('.json').join('').toLowerCase() === username.toLowerCase() ? resolve(true) : reject(false));
+        })
+    })
+}
+
 class User {
     constructor(username, passcode){
         this.username = username;
@@ -224,6 +236,15 @@ class User {
                 };
             });
         });
+    }
+
+    async changeUsername(newUsername){
+        try{
+            let isUser = await findUser(this.username);
+            console.log(isUser);
+        }catch (error){
+            console.log(error)
+        }
     }
 }
 
