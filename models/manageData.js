@@ -38,6 +38,76 @@ const findUser = (username) => {
     })
 }
 
+const changeFileName = (oldPath, newPath) => {
+    return new Promise((resolve, reject) => {
+        fs.rename(oldPath, newPath, (err) => {
+            if(err){
+                reject(err);
+            };
+            resolve({newPath});
+        })
+    })
+}
+
+// This function edit username in json file / if resolve function will return true
+const editUsernameJSON = (path, username) => {
+    return new Promise((resolve, reject) => {
+        fs.readFile(path, 'utf-8', (err, data) => {
+            if(err){
+                console.log(err);
+                reject(err);
+                return;
+            };
+            try{
+                const jsonData = JSON.parse(data);
+                jsonData.USER.username = username;
+                const updatedJsonString = JSON.stringify(jsonData, null, 2);
+                fs.writeFile(path, updatedJsonString, 'utf-8', (err) => {
+                    if(err){
+                        console.log(err);
+                        reject(err);
+                        return;
+                    };
+                    resolve(true);
+                })
+            }catch (error){
+                console.log(error);
+                reject(error);
+            }
+        } )
+    })
+}
+
+// This function accept two args which are path to the json and url to add or edit.
+// Once the function done added or edited successfully, it will return true.
+const editProfileUrl = (path, url) => {
+    return new Promise((resolve, reject) => {
+        fs.readFile(path, 'utf-8', (err, data) => {
+            if(err){
+                console.log(err);
+                reject(err);
+                return;
+            };
+            try{
+                const jsonData = JSON.parse(data);
+                jsonData.USER.profileUrl = url;
+                const updatedJsonString = JSON.stringify(jsonData, null, 2);
+                fs.writeFile(path, updatedJsonString, 'utf-8', (err) => {
+                    if(err){
+                        console.log(err);
+                        reject(err);
+                        return;
+                    };
+                    resolve(true);
+                })
+            }catch(error){
+                console.log(error);
+                reject(error);
+            }
+        })
+    })
+}
+
 class User {
     constructor(username, passcode){
         this.username = username;
@@ -254,9 +324,39 @@ class User {
     async changeUsername(newUsername){
         try{
             let isUser = await findUser(this.username);
-            console.log(isUser);
+            if(isUser){
+                const oldUsername = path.join(userPath, `${this.username}.json`);
+                const changeNewName = path.join(userPath, `${newUsername}.json`);
+                //console.log(oldUsername, changeNewName)
+                const chFilename = await changeFileName(oldUsername, changeNewName);
+                console.log(chFilename.newPath, changeNewName);
+                if(chFilename.newPath === changeNewName){
+                    console.log('/n RUNNING EditUsername Function.....')
+                    const editUsername = await editUsernameJSON(changeNewName, newUsername);
+                    if(editUsername){
+                        return true;
+                    }else{
+                        console.error('Unexpected Error Occoured.');
+                    }
+                }
+            }
         }catch (error){
             console.log(error)
+        }
+    }
+
+    async changeProfileUrl(Url){
+        try{
+            let isUser = await findUser(this.username);
+            if(isUser){
+                const filePath = path.join(userPath, `${this.username}.json`);
+                const urlDone = await editProfileUrl(filePath, Url);
+                if(urlDone){
+                    return true;
+                };
+            }
+        }catch(error){
+            console.log(error);
         }
     }
 }
